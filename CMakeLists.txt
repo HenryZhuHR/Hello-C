@@ -11,15 +11,14 @@ if(NOT CMAKE_C_COMPILER)
         # set(CMAKE_C_COMPILER /usr/bin/gcc)
         set(CMAKE_C_COMPILER /usr/bin/clang)
     else()
-        # set(CMAKE_C_COMPILER /mingw64/bin/gcc)
-        set(CMAKE_C_COMPILER /LLVM/bin/clang.exe)
+        set(CMAKE_C_COMPILER C:/mingw64/bin/gcc.exe)
+        # set(CMAKE_C_COMPILER C:/LLVM/bin/clang.exe)
     endif()
 endif()
-# get_filename_component(CMAKE_C_COMPILER ${CMAKE_C_COMPILER} ABSOLUTE)
 message(STATUS "[INFO] C compiler: ${CMAKE_C_COMPILER}")
 
 
-add_compile_options(-std=c17 -Wall -Werror)
+add_compile_options(-std=c1x -Wall -Werror)
 
 project(happyC LANGUAGES C)
 
