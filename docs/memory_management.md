@@ -12,9 +12,9 @@
 
 # 变量
 
-全局变量（外部变量）：出现在代码块{}之外的变量就是全局变量。
-局部变量（自动变量）：一般情况下，代码块{}内部定义的变量就是自动变量，也可使用auto显示定义。
-静态变量：是指内存位置在程序执行期间一直不改变的变量，用关键字static修饰。代码块内部的静态变量只能被这个代码块内部访问，代码块外部的静态变量只能被定义这个变量的文件访问。
+- 全局变量（外部变量）: 
+- 局部变量（自动变量）: 
+- 静态变量: 关键字static修饰
 
 # 内存四区
 ![内存四区](https://images2015.cnblogs.com/blog/686215/201512/686215-20151217212238302-1812512007.png)
@@ -25,10 +25,10 @@
 　　注意："int a = 0;"语句可拆分成"int a;"和"a = 0"，定义变量a的"int a;"语句并不是代码，它在程序编译时就执行了，并没有放到代码区，放到代码区的只有"a = 0"这句。
 
 ## 静态区
-　静态区存放程序中所有的全局变量和静态变量。
+静态区存放程序中所有的全局变量和静态变量。
 
 ## 栈
-　栈（stack）是一种先进后出的内存结构，所有的自动变量、函数形参都存储在栈中，这个动作由编译器自动完成，我们写程序时不需要考虑。栈区在程序运行期间是可以随时修改的。当一个自动变量超出其作用域时，自动从栈中弹出。
+**栈**(**stack**)是一种先进后出的内存结构，所有的自动变量、函数形参都存储在栈中，这个动作由编译器自动完成，我们写程序时不需要考虑。栈区在程序运行期间是可以随时修改的。当一个自动变量超出其作用域时，自动从栈中弹出。
 
 每个线程都有自己专属的栈；
 栈的最大尺寸固定，超出则引起栈溢出；
@@ -37,24 +37,25 @@
 
 
 ```c
-//实验一：观察代码区、静态区、栈区的内存地址
+#include "stdio.h"
 
-#include "stdafx.h"
-int n = 0;
-void test(int a, int b)
+int  global_variable = 0;
+void print_formal_parameter(int formal_parameter) { printf("address of formal parameter: %p\n", &formal_parameter); }
+int  main(int argc, char const* argv[])
 {
-printf("形式参数a的地址是：%d\n形式参数b的地址是：%d\n",&a, &b);
-}
-int _tmain(int argc, _TCHAR* argv[])
-{
-static int m = 0;
-int a = 0;
-int b = 0;
-printf("自动变量a的地址是：%d\n自动变量b的地址是：%d\n", &a, &b);
-printf("全局变量n的地址是：%d\n静态变量m的地址是：%d\n", &n, &m);
-test(a, b);
-printf("_tmain函数的地址是：%d", &_tmain);
-getchar();
+    static int static_variable  = 1;
+    int        local_varibale_a = 2;
+    int        local_varibale_b = 3;
+
+    printf("address of global variable : %p\n", &global_variable);
+    printf("address of static variable : %p\n", &static_variable);
+    printf("address of local varibale a: %p\n", &local_varibale_a);
+    printf("address of local varibale b: %p\n", &local_varibale_b);
+
+    print_formal_parameter(local_varibale_a);
+
+    printf("address of main(): %p", &main);
+    return 0;
 }
 ```
 

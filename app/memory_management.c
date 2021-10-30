@@ -1,18 +1,3 @@
-// int  n = 0;
-// void test(int a, int b) { printf("形式参数a的地址是：%d\n形式参数b的地址是：%d\n", &a, &b); }
-// int  _tmain(int argc, _TCHAR* argv[])
-// {
-//     static int m = 0;
-//     int        a = 0;
-//     int        b = 0;
-//     printf("自动变量a的地址是：%d\n自动变量b的地址是：%d\n", &a, &b);
-//     printf("全局变量n的地址是：%d\n静态变量m的地址是：%d\n", &n, &m);
-//     test(a, b);
-//     printf("_tmain函数的地址是：%d", &_tmain);
-//     getchar();
-// }
-
-
 #include "stdio.h"
 
 int  global_variable = 0;
