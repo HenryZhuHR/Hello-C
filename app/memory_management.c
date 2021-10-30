@@ -12,6 +12,7 @@
 //     getchar();
 // }
 
+
 #include "stdio.h"
 
 int  global_variable = 0;
