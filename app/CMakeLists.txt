@@ -6,7 +6,7 @@ message(" BINARY DIR:" ${PROJECT_SOURCE_DIR}/bin)
 link_directories(${PROJECT_SOURCE_DIR}/bin)
 
 add_executable(main main.c)
-add_executable(memory memory.c)
+add_executable(memory_management memory_management.c)
 
 
 

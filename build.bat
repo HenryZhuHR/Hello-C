@@ -12,6 +12,6 @@ make -j8
 
 cd ../bin
 main.exe
-memory.exe
+memory_management.exe
 
 @REM rmdir /s /q "..\build"
